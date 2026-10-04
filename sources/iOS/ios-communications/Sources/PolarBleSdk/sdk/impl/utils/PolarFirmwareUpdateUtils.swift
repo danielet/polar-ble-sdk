@@ -1,7 +1,7 @@
 //  Copyright © 2024 Polar. All rights reserved.
 
 import Foundation
-import Zip
+//import Zip
 
 class PolarFirmwareUpdateUtils {
     static let FIRMWARE_UPDATE_FILE_PATH = "/SYSUPDAT.IMG"
@@ -57,7 +57,7 @@ class PolarFirmwareUpdateUtils {
         return available.count > current.count
     }
 
-    static func unzipFirmwarePackage(zippedData: Data) -> [String: Data]? {
+    /*static func unzipFirmwarePackage(zippedData: Data) -> [String: Data]? {
         let temporaryDirectory = FileManager.default.temporaryDirectory
         
         let zipFilePath = temporaryDirectory.appendingPathComponent(UUID().uuidString + ".zip")
@@ -89,6 +89,11 @@ class PolarFirmwareUpdateUtils {
             BleLogger.error("Error during unzipFirmwarePackage(): \(error)")
             return nil
         }
+    }*/
+
+    static func unzipFirmwarePackage(zippedData: Data) -> [String: Data]? {
+        BleLogger.error("unzipFirmwarePackage() unavailable: Zip dependency was removed from this fork (firmware updates are not supported by this build).")
+        return nil
     }
     
     private static func devicePbVersionToString(pbVersion: PbVersion) -> String {
